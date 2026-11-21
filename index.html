@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHRONO ECHO // Paradox Arena</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="viewport-shell">
+    <div class="arena-stage">
+      <canvas id="game-canvas" width="1280" height="760"></canvas>
+
+      <!-- MAIN MENU OVERLAY -->
+      <div id="overlay-menu" class="overlay">
+        <div class="panel">
+          <div class="eyebrow">Tactical Time-Loop Twin-Stick Roguelite</div>
+          <h1 class="game-title">CHRONO ECHO</h1>
+          <p class="subtitle">
+            Fight alongside holographic recordings of your past self. Bait enemy shields with a
+            <b>Time Echo</b>, dash behind for <b>Backstab Crits</b>, combine shots for <b>Crossfire Overloads</b>,
+            and bend causality with <b>Chrono Rewind</b>.
+          </p>
+
+          <div class="mode-row">
+            <button id="btn-campaign" class="btn btn-primary" type="button">
+              CAMPAIGN RUN
+              <span class="btn-sub">10 Waves • 5 Sectors • Final Boss</span>
+            </button>
+            <button id="btn-endless" class="btn" type="button">
+              ENDLESS OVERDRIVE
+              <span class="btn-sub">Infinite Scaling • Boss Every 5th</span>
+            </button>
+            <button id="btn-daily" class="btn btn-gold" type="button">
+              DAILY PARADOX SEED
+              <span class="btn-sub">Deterministic Daily Challenge</span>
+            </button>
+          </div>
+
+          <div class="controls-grid">
+            <div><kbd>WASD</kbd> / <kbd>Arrows</kbd> Thruster Move</div>
+            <div><kbd>L-Click</kbd> + <kbd>Mouse</kbd> Aim &amp; Fire</div>
+            <div><kbd>R-Click</kbd> / <kbd>Q</kbd> <b>Manifest Time Echo</b> (5s Replay)</div>
+            <div><kbd>E</kbd> <b>Chrono Rewind</b> (Undo Damage + Freeze)</div>
+            <div><kbd>Space</kbd> <b>Phase Dash</b> (Dash thru Echo = Nova!)</div>
+            <div><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> / <kbd>Wheel</kbd> Rail • Prism • Vortex</div>
+          </div>
+
+          <div id="menu-records" class="records-bar"></div>
+
+          <div class="settings-row">
+            <button id="btn-toggle-music" class="toggle-btn active-toggle" type="button">MUSIC [M]: ON</button>
+            <button id="btn-toggle-sfx" class="toggle-btn active-toggle" type="button">SFX: ON</button>
+            <button id="btn-toggle-aim" class="toggle-btn" type="button">AUTO-AIM [F]: OFF</button>
+            <button id="btn-toggle-shake" class="toggle-btn active-toggle" type="button">SHAKE: ON</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- UPGRADE DRAFT OVERLAY -->
+      <div id="overlay-upgrade" class="overlay hidden">
+        <div class="panel">
+          <div class="eyebrow">Sector Synchronization Complete</div>
+          <h2 class="game-title" style="font-size: 28px;">INSTALL CHRONO-AUGMENT</h2>
+          <p class="subtitle" style="margin-bottom: 6px;">Select 1 cybernetic paradox upgrade (Click or press <b>[1] [2] [3]</b>)</p>
+          <div id="upgrade-cards" class="upgrade-grid"></div>
+        </div>
+      </div>
+
+      <!-- PAUSE OVERLAY -->
+      <div id="overlay-pause" class="overlay hidden">
+        <div class="panel" style="max-width: 540px;">
+          <div class="eyebrow">Stasis Field Engaged</div>
+          <h2 class="game-title" style="font-size: 30px;">SIMULATION PAUSED</h2>
+          <div id="pause-augments" class="augments-list"></div>
+          <div class="action-row">
+            <button id="btn-resume" class="btn btn-primary" type="button">RESUME [ESC]</button>
+            <button id="btn-restart" class="btn" type="button">RESTART RUN</button>
+            <button id="btn-quit-menu" class="btn" type="button">MAIN MENU</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GAME OVER OVERLAY -->
+      <div id="overlay-gameover" class="overlay hidden">
+        <div class="panel" style="max-width: 600px;">
+          <div class="eyebrow" style="color: #f43f5e;">Timeline Severed</div>
+          <h2 class="game-title" style="font-size: 34px;">PARADOX COLLAPSE</h2>
+          <div id="gameover-stats" class="stats-grid"></div>
+          <div class="action-row">
+            <button id="btn-retry" class="btn btn-primary" type="button">PLAY AGAIN</button>
+            <button id="btn-gameover-menu" class="btn" type="button">MAIN MENU</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- VICTORY OVERLAY -->
+      <div id="overlay-victory" class="overlay hidden">
+        <div class="panel" style="max-width: 640px;">
+          <div class="eyebrow" style="color: #fbbf24;">Omega Chronarch Shattered</div>
+          <h2 class="game-title" style="font-size: 34px;">TIMELINE MASTERED</h2>
+          <p class="subtitle">The Chronarch Sanctum has fallen. Keep your augments and push into infinite Overdrive, or claim victory.</p>
+          <div id="victory-stats" class="stats-grid"></div>
+          <div class="action-row">
+            <button id="btn-continue-endless" class="btn btn-gold" type="button">ENTER ENDLESS OVERDRIVE</button>
+            <button id="btn-victory-menu" class="btn" type="button">MAIN MENU</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/math.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/upgrades.js"></script>
+  <script src="js/weapons.js"></script>
+  <script src="js/enemies.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
